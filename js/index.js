@@ -8,8 +8,12 @@ const operations = {
   subtract: (a, b) => a - b,
   multiply: (a, b) => a * b,
   divide: (a, b) => {
-    if (b === 0) {
-      throw new Error("Cannot divide by zero!");
+    try {
+      if (b === 0) {
+        throw new Error("Cannot divide by zero!");
+      }
+    } catch (Error) {
+      console.log("Please pass a number rather than 0 as divisor, thank you!");
     }
     return a / b;
   },
